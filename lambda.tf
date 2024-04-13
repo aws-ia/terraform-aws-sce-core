@@ -49,6 +49,6 @@ resource "aws_lambda_permission" "sce_parameter_parser" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.sce_parameter_parser.arn
   #checkov:skip=CKV_AWS_364
-  principal     = local.service_catalog.principal # servicecatalog.amazonaws.com
-  statement_id  = "AllowInvokeByServiceCatalog"
+  principal    = local.service_catalog.principal # servicecatalog.amazonaws.com
+  statement_id = "AllowInvokeByServiceCatalog"
 }
