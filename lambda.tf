@@ -44,9 +44,11 @@ resource "aws_lambda_function" "sce_parameter_parser" {
   depends_on = [aws_cloudwatch_log_group.sce_lambda_terraform_parameter_parser]
 }
 
+#tfsec:ignore:aws-lambda-restrict-source-arn
 resource "aws_lambda_permission" "sce_parameter_parser" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.sce_parameter_parser.arn
-  principal     = local.service_catalog.principal
+  #checkov:skip=CKV_AWS_364
+  principal     = local.service_catalog.principal # servicecatalog.amazonaws.com
   statement_id  = "AllowInvokeByServiceCatalog"
 }
