@@ -1,0 +1,29 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Resource": "arn:aws:iam::*:role/*",
+            "Effect": "Allow"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "s3:ExistingObjectTag/servicecatalog:provisioning": "true"
+                }
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::*",
+            "Effect": "Allow"
+        },
+		{
+			"Effect": "Allow",
+			"Action": "sqs:SendMessage",
+			"Resource": "${aws_sqs_queue_sce_dlq_arn}"
+		}
+    ]
+}
