@@ -5,9 +5,7 @@ BASE = $(shell /bin/pwd)
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)
 
-clean: $(SUBDIRSCLEAN)
-
-clean_curdir:
+clean:
 	rm -f .terraform.lock.hcl
 	rm -rf .terraform
 	rm -f ./test/go.mod
@@ -16,6 +14,6 @@ clean_curdir:
 	rm -f tf.plan
 	rm -f *.tfvars
 	rm -rf ./build-artifacts
-
-%clean: %
-    $(MAKE) -C $< -f $(PWD)/Makefile clean_curdir
+	rm -rf ./tests/setup/parameter_parser/.terraform
+	rm -rf ./tests/setup/parameter_parser/.terraform.lock.hcl
+	rm -rf ./tests/setup/parameter_parser/build-artifacts
