@@ -1,0 +1,35 @@
+{
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Sid": "Enable AWS Service Catalog to send messages to the queue",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "servicecatalog.amazonaws.com"
+      },
+      "Action": [
+        "sqs:SendMessage",
+        "sqs:GetQueueUrl"
+      ],
+      "Resource": [
+        "${aws_sqs_queue_sce_provision_queue_arn}",
+        "${aws_sqs_queue_sce_termination_queue_arn}",
+        "${aws_sqs_queue_sce_update_queue_arn}"
+      ]
+    },
+    {
+      "Sid": "Enable AWS Service Catalog encryption/decryption permissions when sending message to queue",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "servicecatalog.amazonaws.com"
+      },
+      "Action": [
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:ReEncrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "${aws_kms_key_sce_arn}"
+    }
+  ]
+}
