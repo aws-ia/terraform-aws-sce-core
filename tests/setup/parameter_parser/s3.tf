@@ -6,6 +6,10 @@
 ############################################################################################################
 
 resource "aws_s3_bucket" "sce_terraform_state" {
+  #checkov:skip=CKV2_AWS_62:event notification is not required
+  #checkov:skip=CKV2_AWS_61:lifecycle configuration is not required
+  #checkov:skip=CKV_AWS_144:cross-region replication is not required
+  #checkov:skip=CKV_AWS_18:access logging is not required
   bucket = local.s3.sce_terraform_state.bucket
   tags   = var.tags
 }
