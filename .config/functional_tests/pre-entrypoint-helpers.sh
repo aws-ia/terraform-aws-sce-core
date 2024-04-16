@@ -4,3 +4,5 @@
 ## TIPS: avoid modifying the .project_automation/functional_test/entrypoint.sh
 ## migrate any customization you did on entrypoint.sh to this helper script
 echo "Executing Pre-Entrypoint Helpers"
+
+export AWS_DEFAULT_REGION=us-east-1
