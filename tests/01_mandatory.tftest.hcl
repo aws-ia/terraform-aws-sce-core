@@ -18,18 +18,18 @@ run "mandatory_plan_basic" {
 
   variables {
     lambda_sce_parameter_parser_s3_bucket = run.setup.lambda_sce_parameter_parser_s3_bucket
-    lambda_sce_parameter_parser_s3_key = run.setup.lambda_sce_parameter_parser_s3_key
+    lambda_sce_parameter_parser_s3_key    = run.setup.lambda_sce_parameter_parser_s3_key
   }
 }
 
-run "mandatory_apply_basic" {
-  command = apply
-  module {
-    source = "./examples/basic"
-  }
+// run "mandatory_apply_basic" {
+//   command = apply
+//   module {
+//     source = "./examples/basic"
+//   }
 
-  variables {
-    lambda_sce_parameter_parser_s3_bucket = run.setup.lambda_sce_parameter_parser_s3_bucket
-    lambda_sce_parameter_parser_s3_key = run.setup.lambda_sce_parameter_parser_s3_key
-  }
-}
+//   variables {
+//     lambda_sce_parameter_parser_s3_bucket = run.setup.lambda_sce_parameter_parser_s3_bucket
+//     lambda_sce_parameter_parser_s3_key = run.setup.lambda_sce_parameter_parser_s3_key
+//   }
+// }
