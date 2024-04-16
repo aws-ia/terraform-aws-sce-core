@@ -1,5 +1,9 @@
-#####################################################################################
-# Terraform module examples are meant to show an _example_ on how to use a module
-# per use-case. The code below should not be copied directly but referenced in order
-# to build your own root module that invokes this module
-#####################################################################################
+module "sce_core" {
+  source = "../.."
+
+  lambda_sce_parameter_parser_s3_bucket     = var.lambda_sce_parameter_parser_s3_bucket
+  lambda_sce_parameter_parser_s3_key        = var.lambda_sce_parameter_parser_s3_key
+  lambda_sce_parameter_parser_architectures = ["arm64"]
+  lambda_sce_parameter_parser_handler       = "bootstrap"
+  lambda_sce_parameter_parser_runtime       = "provided.al2023"
+}
