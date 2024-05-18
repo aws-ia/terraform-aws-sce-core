@@ -18,13 +18,13 @@ This modules deploys the core engine components needed to support `EXTERNAL` AWS
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.0.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.41.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_label"></a> [label](#module\_label) | git::https://github.com/aws-ia/terraform-aws-label.git | 9595b11 |
+| <a name="module_label"></a> [label](#module\_label) | git::https://github.com/aws-ia/terraform-aws-label.git | 9595b11aadf520f5ee3c210848802c414441236f |
 
 ## Resources
 
@@ -70,6 +70,7 @@ This modules deploys the core engine components needed to support `EXTERNAL` AWS
 | <a name="input_lambda_sce_parameter_parser_description"></a> [lambda\_sce\_parameter\_parser\_description](#input\_lambda\_sce\_parameter\_parser\_description) | Description of what your Lambda Function does | `string` | `"Parses parameters - Invoked by Service Catalog"` | no |
 | <a name="input_lambda_sce_parameter_parser_memory_size"></a> [lambda\_sce\_parameter\_parser\_memory\_size](#input\_lambda\_sce\_parameter\_parser\_memory\_size) | Amount of memory in MB your Lambda Function can use at runtime | `number` | `1024` | no |
 | <a name="input_lambda_sce_parameter_parser_timeout"></a> [lambda\_sce\_parameter\_parser\_timeout](#input\_lambda\_sce\_parameter\_parser\_timeout) | Amount of time your Lambda Function has to run in seconds. | `number` | `100` | no |
+| <a name="input_lambda_sce_parameter_tracing_config_mode"></a> [lambda\_sce\_parameter\_tracing\_config\_mode](#input\_lambda\_sce\_parameter\_tracing\_config\_mode) | Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are PassThrough and Active. | `string` | `"Active"` | no |
 | <a name="input_stage"></a> [stage](#input\_stage) | Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release'. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to apply to resources deployed by this solution. | `map(any)` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID to use if leveraging an existing VPC for the solution. | `string` | `null` | no |
@@ -80,10 +81,10 @@ This modules deploys the core engine components needed to support `EXTERNAL` AWS
 
 | Name | Description |
 |------|-------------|
-| <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | KMS key for Service Catalog Engine Core |
-| <a name="output_sce_parameter_parser_role_arn"></a> [sce\_parameter\_parser\_role\_arn](#output\_sce\_parameter\_parser\_role\_arn) | IAM role ARN used by Lambda parameter parser |
-| <a name="output_sqs_dlq_arn"></a> [sqs\_dlq\_arn](#output\_sqs\_dlq\_arn) | SQS queue for death letter queue |
-| <a name="output_sqs_provision_queue_arn"></a> [sqs\_provision\_queue\_arn](#output\_sqs\_provision\_queue\_arn) | SQS queue for product provisioning requests |
-| <a name="output_sqs_termination_queue_arn"></a> [sqs\_termination\_queue\_arn](#output\_sqs\_termination\_queue\_arn) | SQS queue for product termination requests |
-| <a name="output_sqs_update_queue_arn"></a> [sqs\_update\_queue\_arn](#output\_sqs\_update\_queue\_arn) | SQS queue for product update requests |
+| <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | n/a |
+| <a name="output_sce_parameter_parser_role_arn"></a> [sce\_parameter\_parser\_role\_arn](#output\_sce\_parameter\_parser\_role\_arn) | n/a |
+| <a name="output_sqs_dlq_arn"></a> [sqs\_dlq\_arn](#output\_sqs\_dlq\_arn) | n/a |
+| <a name="output_sqs_provision_queue_arn"></a> [sqs\_provision\_queue\_arn](#output\_sqs\_provision\_queue\_arn) | n/a |
+| <a name="output_sqs_termination_queue_arn"></a> [sqs\_termination\_queue\_arn](#output\_sqs\_termination\_queue\_arn) | n/a |
+| <a name="output_sqs_update_queue_arn"></a> [sqs\_update\_queue\_arn](#output\_sqs\_update\_queue\_arn) | n/a |
 <!-- END_TF_DOCS -->

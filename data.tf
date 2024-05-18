@@ -11,17 +11,14 @@ data "aws_region" "current" {}
 # IAM Policies
 ######################################
 
-# tflint-ignore: terraform_naming_convention
 data "aws_iam_policy" "AWSLambdaBasicExecutionRole" {
   name = "AWSLambdaBasicExecutionRole"
 }
 
-# tflint-ignore: terraform_naming_convention
 data "aws_iam_policy" "AWSLambdaVPCAccessExecutionRole" {
   name = "AWSLambdaVPCAccessExecutionRole"
 }
 
-# tflint-ignore: terraform_naming_convention
 data "aws_iam_policy" "AWSXrayWriteOnlyAccess" {
   name = "AWSXrayWriteOnlyAccess"
 }

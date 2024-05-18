@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 resource "aws_sqs_queue" "sce_provision_queue" {
+
   name                              = local.service_catalog.sqs_provision_queue_name
   kms_master_key_id                 = aws_kms_alias.sce.name
   visibility_timeout_seconds        = 240

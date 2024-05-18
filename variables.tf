@@ -91,10 +91,6 @@ variable "lambda_sce_parameter_parser_memory_size" {
 variable "lambda_sce_parameter_parser_runtime" {
   description = "Identifier of the function's runtime."
   type        = string
-  validation {
-    condition     = contains(["nodejs20.x", "nodejs18.x", "nodejs16.x", "nodejs14.x", "python3.11", "python3.10", "python3.9", "python3.8", "python3.7", "java21", "java17", "java11", "java8.al2", "java8", "dotnet7", "dotnet6", "go1.x", "ruby3.2", "ruby2.7", "provided.al2023", "provided.al2", "provided"], var.lambda_sce_parameter_parser_runtime)
-    error_message = "Valid values for var: lambda_sce_parameter_parser_runtime are (nodejs20.x, nodejs18.x, nodejs16.x, nodejs14.x, python3.11,python3.10,python3.9,python3.8,python3.7, java21, java17, java11,java8.al2,java8,dotnet7,dotnet6,go1.x,ruby3.2,ruby2.7,provided.al2023,provided.al2,provided)."
-  }
 }
 
 variable "lambda_sce_parameter_parser_s3_bucket" {
@@ -117,6 +113,16 @@ variable "lambda_sce_parameter_parser_timeout" {
       var.lambda_sce_parameter_parser_timeout <= 900
     )
     error_message = "Lambda timout must be between 1 and 900 seconds."
+  }
+}
+
+variable "lambda_sce_parameter_tracing_config_mode" {
+  description = "Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are PassThrough and Active."
+  type        = string
+  default     = "Active"
+  validation {
+    condition     = contains(["Active", "PassThrough"], var.lambda_sce_parameter_tracing_config_mode)
+    error_message = "Valid values for var: lambda_sce_parameter_tracing_config_mode are (Active, PassThrough)."
   }
 }
 

@@ -39,16 +39,16 @@ resource "aws_lambda_function" "sce_parameter_parser" {
     }
   }
   tracing_config {
-    mode = "Active"
+    mode = var.lambda_sce_parameter_tracing_config_mode
   }
   depends_on = [aws_cloudwatch_log_group.sce_lambda_terraform_parameter_parser]
 }
 
-#tfsec:ignore:aws-lambda-restrict-source-arn
 resource "aws_lambda_permission" "sce_parameter_parser" {
+  #checkov:skip=CKV_AWS_364:Permissions cannot be limited by SourceArn or SourceAccount for this use case
+
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.sce_parameter_parser.arn
-  #checkov:skip=CKV_AWS_364
-  principal    = local.service_catalog.principal # servicecatalog.amazonaws.com
-  statement_id = "AllowInvokeByServiceCatalog"
+  principal     = local.service_catalog.principal
+  statement_id  = "AllowInvokeByServiceCatalog"
 }
