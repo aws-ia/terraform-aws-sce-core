@@ -81,10 +81,10 @@ This modules deploys the core engine components needed to support `EXTERNAL` AWS
 
 | Name | Description |
 |------|-------------|
-| <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | n/a |
-| <a name="output_sce_parameter_parser_role_arn"></a> [sce\_parameter\_parser\_role\_arn](#output\_sce\_parameter\_parser\_role\_arn) | n/a |
-| <a name="output_sqs_dlq_arn"></a> [sqs\_dlq\_arn](#output\_sqs\_dlq\_arn) | n/a |
-| <a name="output_sqs_provision_queue_arn"></a> [sqs\_provision\_queue\_arn](#output\_sqs\_provision\_queue\_arn) | n/a |
-| <a name="output_sqs_termination_queue_arn"></a> [sqs\_termination\_queue\_arn](#output\_sqs\_termination\_queue\_arn) | n/a |
-| <a name="output_sqs_update_queue_arn"></a> [sqs\_update\_queue\_arn](#output\_sqs\_update\_queue\_arn) | n/a |
+| <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | KMS key for Service Catalog Engine Core |
+| <a name="output_sce_parameter_parser_role_arn"></a> [sce\_parameter\_parser\_role\_arn](#output\_sce\_parameter\_parser\_role\_arn) | IAM role ARN used by Lambda parameter parser |
+| <a name="output_sqs_dlq_arn"></a> [sqs\_dlq\_arn](#output\_sqs\_dlq\_arn) | SQS queue for death letter queue |
+| <a name="output_sqs_provision_queue_arn"></a> [sqs\_provision\_queue\_arn](#output\_sqs\_provision\_queue\_arn) | SQS queue for product provisioning requests |
+| <a name="output_sqs_termination_queue_arn"></a> [sqs\_termination\_queue\_arn](#output\_sqs\_termination\_queue\_arn) | SQS queue for product termination requests |
+| <a name="output_sqs_update_queue_arn"></a> [sqs\_update\_queue\_arn](#output\_sqs\_update\_queue\_arn) | SQS queue for product update requests |
 <!-- END_TF_DOCS -->
