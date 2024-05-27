@@ -40,6 +40,7 @@ resource "aws_lambda_function" "sce_parameter_parser" {
   }
   tracing_config {
     mode = var.lambda_sce_parameter_tracing_config_mode
+
   }
   depends_on = [aws_cloudwatch_log_group.sce_lambda_terraform_parameter_parser]
 }
