@@ -23,7 +23,7 @@ resource "aws_s3_bucket_versioning" "sce_terraform_state" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "sce_terraform_state" {
-
+  #checkov:skip=CKV2_AWS_67:encryption rotation optional for test
   bucket = aws_s3_bucket.sce_terraform_state.id
 
   rule {
