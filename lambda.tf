@@ -44,6 +44,7 @@ resource "aws_lambda_function" "sce_parameter_parser" {
   depends_on = [aws_cloudwatch_log_group.sce_lambda_terraform_parameter_parser]
 }
 
+#tfsec:ignore:aws-lambda-restrict-source-arn Permissions cannot be limited by SourceArn or SourceAccount for this use case
 resource "aws_lambda_permission" "sce_parameter_parser" {
   #checkov:skip=CKV_AWS_364:Permissions cannot be limited by SourceArn or SourceAccount for this use case
 
