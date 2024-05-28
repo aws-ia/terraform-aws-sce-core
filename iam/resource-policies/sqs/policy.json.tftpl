@@ -30,6 +30,18 @@
         "kms:GenerateDataKey"
       ],
       "Resource": "${aws_kms_key_sce_arn}"
+    },
+    {
+      "Sid": "Deny Non-HTTPS connections",
+      "Action": "sqs:*",
+      "Effect": "Deny",
+      "Resource": "*",
+      "Condition": {
+        "Bool": {
+          "aws:SecureTransport": "false"
+        }
+      },
+      "Principal": "*"
     }
   ]
 }
